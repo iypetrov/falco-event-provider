@@ -87,3 +87,5 @@ api/group/v1alpha1/<LANDSCAPE>/<PROJECT>/<CLUSTER>
 ``` bash
 api/group/v1alpha1/sap-landscape-dev/garden
 ```
+
+<p align="center"><img alt="Bundesministerium für Wirtschaft und Energie (BMWE)-EU funding logo" src="https://apeirora.eu/assets/img/BMWK-EU.png" width="400"/></p>
