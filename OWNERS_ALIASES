@@ -2,10 +2,12 @@
 
 aliases:
   falco-event-provider-reviewers:
+  - lsroe
   - marwinski
   - AleksandarSavchev
   - georgibaltiev
   falco-event-provider-approvers:
+  - lsroe
   - marwinski
   - AleksandarSavchev
   - georgibaltiev
