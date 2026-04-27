@@ -1,0 +1,21 @@
+{{- if .Values.eventProvider.useIngress }}
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  labels:
+    app: {{ .Values.name }}
+  name: {{ .Values.name }}-ingress
+spec:
+  exportTo:
+  - '*'
+  gateways:
+  - {{ .Values.name }}-ingress
+  hosts:
+  - {{ .Values.eventProvider.ingressDomain }}
+  http:
+  - route:
+    - destination:
+        host: {{ .Values.name }}.{{ .Release.Namespace }}.svc.cluster.local
+        port:
+          number: {{ .Values.eventProvider.port}}
+{{- end }}

@@ -1,0 +1,26 @@
+{{- if .Values.eventProvider.useIngress }}
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  labels:
+    app: {{ .Values.name }}
+  name: {{ .Values.name }}-ingress
+spec:
+  exportTo:
+  - '*'
+  host: {{ .Values.name }}.{{ .Release.Namespace }}.svc.cluster.local
+  trafficPolicy:
+    loadBalancer:
+      localityLbSetting:
+        failoverPriority:
+          - topology.kubernetes.io/zone
+        enabled: true
+    connectionPool:
+      tcp:
+        maxConnectionDuration: 86400s
+        tcpKeepalive:
+          interval: 75s
+          time: 7200s
+    outlierDetection: {}
+    tls: {}
+{{- end }}
